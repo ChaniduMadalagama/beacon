@@ -1,0 +1,21 @@
+import 'package:flutter/material.dart';
+import '../../../../core/theme/app_colors.dart';
+import '../../../../core/theme/app_text_styles.dart';
+
+class AuthDivider extends StatelessWidget {
+  const AuthDivider({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Row(
+      children: [
+        Expanded(child: Divider(color: AppColors.divider)),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16),
+          child: Text('OR ACCESS VIA', style: AppTextStyles.dividerText),
+        ),
+        Expanded(child: Divider(color: AppColors.divider)),
+      ],
+    );
+  }
+}
