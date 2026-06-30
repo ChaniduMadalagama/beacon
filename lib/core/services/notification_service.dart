@@ -12,7 +12,7 @@ class NotificationService {
 
     const DarwinInitializationSettings initializationSettingsIOS =
         DarwinInitializationSettings(
-          requestAlertPermission: false, // Handle this manually via requestPermissions
+          requestAlertPermission: false, 
           requestBadgePermission: false,
           requestSoundPermission: false,
         );

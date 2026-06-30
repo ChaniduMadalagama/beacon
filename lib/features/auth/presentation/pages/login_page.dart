@@ -161,3 +161,24 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
+
+/**
+ * --- INTERVIEW PREP: HOW BLOC ACCESS WORKS ---
+ * 
+ * If asked: "How does the UI access 'SignInWithGoogleRequested'?"
+ * 
+ * 1. The Provider: In 'main.dart', we wrapped the app in a 'BlocProvider'. 
+ *    This puts the 'AuthBloc' into the "Context" (the environment) of the app.
+ * 
+ * 2. The Bridge (context.read): When we call 'context.read<AuthBloc>()', 
+ *    Flutter looks up the tree to find that provided 'AuthBloc'.
+ * 
+ * 3. The Event (.add): We are NOT accessing a stream directly here. 
+ *    We are "Adding an Event" to the Bloc's sink.
+ * 
+ * ⚠️ Clarification on your answer:
+ * You might have confused 'BlocProvider' with a regular 'Stream'. 
+ * While Bloc uses Streams internally, 'context.read' is a feature of the 
+ * 'provider' package that Bloc is built upon. It's the "Delivery Service" 
+ * for the Bloc.
+ */

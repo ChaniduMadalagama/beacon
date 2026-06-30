@@ -132,3 +132,33 @@ class _UserChanged extends AuthEvent {
   @override
   List<Object?> get props => [user];
 }
+
+/**
+ * --- FILE SUMMARY ---
+ * This file is the "Authentication Brain." 
+ * It manages everything related to logging in and out. It uses Bloc 
+ * to listen to events (like clicking a button) and tells the app 
+ * if the user is 'Authenticated' or not.
+ *
+ * --- FUNCTION BREAKDOWN ---
+ * 
+ * 1. _onSubscriptionRequested:
+ *    - The "Live Watcher." It starts listening to the AuthRepository 
+ *      to see if a user logs in or out anywhere in the app.
+ * 
+ * 2. _onUserChanged:
+ *    - The "Decision Maker." Whenever the watcher sees a change, 
+ *      this function decides if the app should show the Dashboard 
+ *      (Authenticated) or the Login screen (Unauthenticated).
+ * 
+ * 3. SignIn/SignUp/SignOut Functions:
+ *    - The "Action Handlers." They tell the repository to talk to 
+ *      Google or Firebase to perform the actual login work.
+ * 
+ * --- HOW TO ACCESS ---
+ * You access this brain in your UI using: 'context.read<AuthBloc>()'.
+ * This works because we provided the Bloc at the very top of the app 
+ * inside 'main.dart'. The '_userSubscription' is just an internal 
+ * tool the brain uses to "listen" for changes; the UI doesn't talk 
+ * to the subscription directly.
+ */
